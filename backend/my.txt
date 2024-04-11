@@ -1,0 +1,3 @@
+-> add category
+-> year of release
+-> add features in search to search on the basis of name, year of release and category
