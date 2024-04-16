@@ -11,10 +11,12 @@ app.post("/set", async (req, res) => {
   const name = req.body.name;
   const script = req.body.script;
   const genre = req.body.genre;
+  const year = req.body.year;
   const newMovie = await movie.create({
     name: name,
     script: script,
     genre: genre,
+    year: year,
   });
   console.log("new movie is :", newMovie);
   res.json({ message: "movie Created", movie: newMovie });
@@ -24,7 +26,7 @@ app.post("/get", async (req, res) => {
   const name = req.body.name || "";
   const quote = req.body.quote || "";
   const genre = req.body.genre || "";
-  const year = req.body.time || 0;
+  const year = req.body.year || 0;
   let searchCriteria: any = {};
 
   const nameRegex = new RegExp(name, "i"); // Case-insensitive name search

@@ -22,10 +22,12 @@ app.post("/set", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.body.name;
     const script = req.body.script;
     const genre = req.body.genre;
+    const year = req.body.year;
     const newMovie = yield db_1.movie.create({
         name: name,
         script: script,
         genre: genre,
+        year: year,
     });
     console.log("new movie is :", newMovie);
     res.json({ message: "movie Created", movie: newMovie });
@@ -34,7 +36,7 @@ app.post("/get", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.body.name || "";
     const quote = req.body.quote || "";
     const genre = req.body.genre || "";
-    const year = req.body.time || 0;
+    const year = req.body.year || 0;
     let searchCriteria = {};
     const nameRegex = new RegExp(name, "i"); // Case-insensitive name search
     if (quote !== "") {
